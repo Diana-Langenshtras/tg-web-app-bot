@@ -14,6 +14,7 @@ function App() {
   return (
     <div className="App">
       work
+      lpl
       <button onClick={onClose}>Закрыть</button> 
     </div>
   );
