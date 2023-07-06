@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import './App.css';
-const tg = Window.Telegram.WebApp;
+const tg = window.Telegram.WebApp;
+
 function App() {
 
   useEffect(() => {
@@ -14,7 +15,6 @@ function App() {
   return (
     <div className="App">
       work
-      lpl
       <button onClick={onClose}>Закрыть</button> 
     </div>
   );
