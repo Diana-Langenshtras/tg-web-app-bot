@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import './Form.css'
-import {useTelegram} from "../../hooks/useTelegram";
+import { useTelegram } from '../../hooks/useTelegram';
 
 const Form = () => {
    const [country, setCountry] = useState('');
@@ -15,6 +15,7 @@ const Form = () => {
            subject
        }
        tg.sendData(JSON.stringify(data));
+       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [country, street, subject])
 
    useEffect(() => {
@@ -22,12 +23,14 @@ const Form = () => {
        return () => {
            tg.offEvent('mainButtonClicked', onSendData)
        }
+       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [onSendData])
 
    useEffect(() => {
        tg.MainButton.setParams({
            text: 'Отправить данные'
        })
+       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [])
 
    useEffect(() => {
@@ -36,6 +39,7 @@ const Form = () => {
        } else {
            tg.MainButton.show();
        }
+       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [country, street])
 
    const onChangeCountry = (e) => {
