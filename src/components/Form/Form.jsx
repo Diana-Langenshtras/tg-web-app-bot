@@ -14,7 +14,9 @@ const Form = () => {
            street,
            subject
        }
+       tg.sendData(new Date().toString());
        tg.sendData(JSON.stringify(data));
+     //  Telegram.WebApp.sendData(new Date().toString());
        // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [country, street, subject])
 
