@@ -41,7 +41,7 @@ const Form = () => {
            tg.MainButton.show();
        }
        // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, [country, street])
+   }, [name, surname, knowledge_level])
 
    const onChangeName = (e) => {
        setName(e.target.value)
