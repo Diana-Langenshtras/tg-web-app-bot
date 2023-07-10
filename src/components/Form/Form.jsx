@@ -3,21 +3,21 @@ import './Form.css'
 import { useTelegram } from '../../hooks/useTelegram';
 
 const Form = () => {
-   const [country, setCountry] = useState('');
-   const [street, setStreet] = useState('');
-   const [subject, setSubject] = useState('physical');
+   const [name, setName] = useState('');
+   const [surname, setSurname] = useState('');
+   const [knowledge_level, setLevel] = useState('');
    const {tg} = useTelegram();
 
    const onSendData = useCallback(() => {
        const data = {
-           country,
-           street,
-           subject
+           name,
+           surname,
+           knowledge_level
        }
        tg.sendData(JSON.stringify(data));
      //  Telegram.WebApp.sendData(new Date().toString());
        // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, [country, street, subject])
+   }, [name, surname, knowledge_level])
 
    useEffect(() => {
        tg.onEvent('mainButtonClicked', onSendData)
@@ -43,16 +43,16 @@ const Form = () => {
        // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [country, street])
 
-   const onChangeCountry = (e) => {
-       setCountry(e.target.value)
+   const onChangeName = (e) => {
+       setName(e.target.value)
    }
 
-   const onChangeStreet = (e) => {
-       setStreet(e.target.value)
+   const onChangeSurname = (e) => {
+       setSurname(e.target.value)
    }
 
-   const onChangeSubject = (e) => {
-       setSubject(e.target.value)
+   const onChangeLevel = (e) => {
+       setLevel(e.target.value)
    }
 
    return (
@@ -61,20 +61,24 @@ const Form = () => {
            <input
                className={'input'}
                type="text"
-               placeholder={'Страна'}
+               placeholder={'Имя'}
                value={country}
-               onChange={onChangeCountry}
+               onChange={onChangeName}
            />
            <input
                className={'input'}
                type="text"
-               placeholder={'Улица'}
+               placeholder={'Фамилия'}
                value={street}
-               onChange={onChangeStreet}
+               onChange={onChangeSurname}
            />
-           <select value={subject} onChange={onChangeSubject} className={'select'}>
-               <option value={'physical'}>Физ. лицо</option>
-               <option value={'legal'}>Юр. лицо</option>
+           <h3>Оцените уровень знаний по пятибалльной шкале</h3>
+           <select value={subject} onChange={onChangeLevel} className={'select'}>
+               <option value={'1'}></option>
+               <option value={'2'}></option>
+               <option value={'3'}></option>
+               <option value={'4'}></option>
+               <option value={'5'}></option>
            </select>
        </div>
    );
