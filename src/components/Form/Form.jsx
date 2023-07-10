@@ -74,11 +74,11 @@ const Form = () => {
            />
            <h3>Оцените уровень знаний по пятибалльной шкале</h3>
            <select value={knowledge_level} onChange={onChangeLevel} className={'select'}>
-               <option value={'1'}></option>
-               <option value={'2'}></option>
-               <option value={'3'}></option>
-               <option value={'4'}></option>
-               <option value={'5'}></option>
+               <option value={'1'}>1 - </option>
+               <option value={'2'}>2 - </option>
+               <option value={'3'}>3 - </option>
+               <option value={'4'}>4 - </option>
+               <option value={'5'}>5 - </option>
            </select>
        </div>
    );
