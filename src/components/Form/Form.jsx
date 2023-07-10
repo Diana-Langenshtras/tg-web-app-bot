@@ -35,7 +35,7 @@ const Form = () => {
    }, [])
 
    useEffect(() => {
-       if(!street || !country) {
+       if(!name || !surname || !knowledge_level) {
            tg.MainButton.hide();
        } else {
            tg.MainButton.show();
@@ -62,18 +62,18 @@ const Form = () => {
                className={'input'}
                type="text"
                placeholder={'Имя'}
-               value={country}
+               value={name}
                onChange={onChangeName}
            />
            <input
                className={'input'}
                type="text"
                placeholder={'Фамилия'}
-               value={street}
+               value={surname}
                onChange={onChangeSurname}
            />
            <h3>Оцените уровень знаний по пятибалльной шкале</h3>
-           <select value={subject} onChange={onChangeLevel} className={'select'}>
+           <select value={knowledge_level} onChange={onChangeLevel} className={'select'}>
                <option value={'1'}></option>
                <option value={'2'}></option>
                <option value={'3'}></option>
