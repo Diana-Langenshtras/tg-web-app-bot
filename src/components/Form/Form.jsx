@@ -16,7 +16,7 @@ const Form = () => {
        }
       // eslint-disable-next-line react-hooks/exhaustive-deps
        tg.sendData(JSON.stringify(data));
-   }, [name, surname, knowledge_level])
+   }, [name, surname, knowledge_level, tg])
 
    useEffect(() => {
        tg.onEvent('mainButtonClicked', onSendData)
