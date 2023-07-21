@@ -5,7 +5,7 @@ import { useTelegram } from '../../hooks/useTelegram';
 const Form = () => {
    const [name, setName] = useState('');
    const [surname, setSurname] = useState('');
-   const [knowledge_level, setLevel] = useState('');
+   const [knowledge_level, setLevel] = useState('1');
    const {tg} = useTelegram();
 
    const onSendData = useCallback(() => {
@@ -15,8 +15,6 @@ const Form = () => {
            knowledge_level
        }
        tg.sendData(JSON.stringify(data));
-     //  Telegram.WebApp.sendData(new Date().toString());
-       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [name, surname, knowledge_level])
 
    useEffect(() => {
@@ -74,11 +72,10 @@ const Form = () => {
            />
            <h3>Оцените уровень знаний по пятибалльной шкале</h3>
            <select value={knowledge_level} onChange={onChangeLevel} className={'select'}>
-               <option value={'1'}>1 - </option>
-               <option value={'2'}>2 - </option>
-               <option value={'3'}>3 - </option>
-               <option value={'4'}>4 - </option>
-               <option value={'5'}>5 - </option>
+               <option value={'1'}>Junior - </option>
+               <option value={'2'}>Middle - </option>
+               <option value={'3'}>Senior - </option>
+               <option value={'4'}>Expert - </option>
            </select>
        </div>
    );
