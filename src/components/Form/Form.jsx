@@ -14,6 +14,7 @@ const Form = () => {
            surname,
            knowledge_level
        }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
        tg.sendData(JSON.stringify(data));
    }, [name, surname, knowledge_level])
 
@@ -72,10 +73,10 @@ const Form = () => {
            />
            <h3>Оцените уровень знаний по пятибалльной шкале</h3>
            <select value={knowledge_level} onChange={onChangeLevel} className={'select'}>
-               <option value={'1'}>Junior - </option>
-               <option value={'2'}>Middle - </option>
-               <option value={'3'}>Senior - </option>
-               <option value={'4'}>Expert - </option>
+               <option value={'1'}>Junior</option>
+               <option value={'2'}>Middle</option>
+               <option value={'3'}>Senior</option>
+               <option value={'4'}>Expert</option>
            </select>
        </div>
    );
